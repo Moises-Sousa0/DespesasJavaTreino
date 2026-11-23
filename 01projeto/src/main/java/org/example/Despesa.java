@@ -28,6 +28,13 @@ public class Despesa {
             throw new IllegalArgumentException("Descrição não pode ser vazia.");
         }
 
+        if (categoria == null) {
+            throw new IllegalArgumentException("Categoria não pode ser nula.");
+        }
+
+        if (data == null) {
+            throw new IllegalArgumentException("Data não pode ser nula.");
+        }
 
         this.categoria = categoria;
         this.descricao = descricao;
@@ -35,4 +42,15 @@ public class Despesa {
         this.data = data;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
 }
