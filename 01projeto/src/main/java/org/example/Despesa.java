@@ -53,4 +53,8 @@ public class Despesa {
     public LocalDate getData() {
         return data;
     }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
 }
