@@ -35,6 +35,8 @@ public class Main {
         return total;
     }
 
+
+    //
     static Map<Categoria, List<Despesa>> agruparPorCategoria(List<Despesa> despesas) {
         Map<Categoria, List<Despesa>> grupos = new HashMap<>();
 
@@ -50,4 +52,18 @@ public class Main {
 
         return grupos;
     }
+
+    static List<Despesa> filtrarPorCategoria(List<Despesa> despesas, Categoria categoriaEscolhida) {
+        List<Despesa> resultado = new ArrayList<>();
+
+        for (Despesa despesaAtual: despesas) {
+            Categoria categoriaAtual = despesaAtual.getCategoria();
+            if (categoriaEscolhida.equals(categoriaAtual)) {
+                resultado.add(despesaAtual);
+            }
+
+        }
+        return resultado;
+    }
+
 }
