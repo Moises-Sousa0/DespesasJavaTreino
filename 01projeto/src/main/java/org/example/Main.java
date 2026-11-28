@@ -66,4 +66,17 @@ public class Main {
         return resultado;
     }
 
+    static List<Despesa> filtrarPorPeriodo(List<Despesa> depesas, LocalDate periodoInicial, LocalDate periodoFinal) {
+        List<Despesa> resultado = new ArrayList<>();
+
+        for (Despesa despesaAtual : depesas) {
+            LocalDate dataDaDespesa = despesaAtual.getData();
+            if (!dataDaDespesa.isBefore(periodoInicial) && !dataDaDespesa.isAfter(periodoFinal)) {
+                resultado.add(despesaAtual);
+            }
+        }
+        return resultado;
+
+    }
+
 }

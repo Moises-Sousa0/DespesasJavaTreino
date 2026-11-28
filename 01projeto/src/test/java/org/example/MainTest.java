@@ -83,4 +83,18 @@ class MainTest {
         assertTrue(quantidadeDeTeste <= 0);
     }
 
+
+    @Test
+    void DeveFiltrarDespesasPorPeriodo(){
+        List<Despesa> despesas = new ArrayList<>();
+        despesas.add(new Despesa(Categoria.UBER, "Teste1", BigDecimal.valueOf(29.00), LocalDate.of(2026, 11, 1)));
+        despesas.add(new Despesa(Categoria.UBER, "Teste1", BigDecimal.valueOf(29.00), LocalDate.of(2026, 11, 30)));
+        despesas.add(new Despesa(Categoria.LIVROS, "Teste1", BigDecimal.valueOf(29.00), LocalDate.of(2026, 12, 22)));
+        despesas.add(new Despesa(Categoria.INTERNET, "Teste1", BigDecimal.valueOf(29.00), LocalDate.of(2026, 1, 21)));
+
+        List<Despesa> filtrarPorPeriodo = Main.filtrarPorPeriodo(despesas, LocalDate.of(2026,11,1), LocalDate.of(2026, 11, 30));
+        int quantidadeDeDespesasPorPeriodo = filtrarPorPeriodo.size();
+        assertEquals(2, quantidadeDeDespesasPorPeriodo);
+
+    }
 }
