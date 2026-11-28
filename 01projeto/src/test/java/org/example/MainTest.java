@@ -97,4 +97,21 @@ class MainTest {
         assertEquals(2, quantidadeDeDespesasPorPeriodo);
 
     }
+
+    @Test
+    void deveOrdenarDespesasDaMaisAntigaParaAMaisRecente(){
+        List<Despesa> despesas = new ArrayList<>();
+        despesas.add(new Despesa(Categoria.UBER, "Teste1", BigDecimal.valueOf(29.00), LocalDate.of(2026, 11, 01)));
+        despesas.add(new Despesa(Categoria.UBER, "Teste1", BigDecimal.valueOf(29.00), LocalDate.of(2026, 11, 30)));
+        despesas.add(new Despesa(Categoria.LIVROS, "Teste1", BigDecimal.valueOf(29.00), LocalDate.of(2026, 12, 22)));
+        despesas.add(new Despesa(Categoria.INTERNET, "Teste1", BigDecimal.valueOf(29.00), LocalDate.of(2026, 1, 21)));
+
+        List<Despesa> ordenarPorData = Main.ordenarPorData(despesas);
+        assertEquals(LocalDate.of(2026, 01, 21), ordenarPorData.get(0).getData());
+        assertEquals(LocalDate.of(2026, 11, 01), ordenarPorData.get(1).getData());
+        assertEquals(LocalDate.of(2026, 11, 30), ordenarPorData.get(2).getData());
+        assertEquals(LocalDate.of(2026, 12, 22), ordenarPorData.get(3).getData());
+
+    }
+
 }

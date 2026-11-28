@@ -2,10 +2,7 @@ package org.example;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
 
@@ -78,5 +75,18 @@ public class Main {
         return resultado;
 
     }
+
+    static List<Despesa> ordenarPorData(List<Despesa> despesas) {
+        ArrayList<Despesa> copia = new ArrayList<>(despesas);
+        copia.sort(new Comparator<Despesa>() {
+            @Override
+            public int compare(Despesa primeira, Despesa segunda) {
+                return primeira.getData().compareTo(segunda.getData());
+            }
+
+        });
+        return  copia;
+    }
+
 
 }
